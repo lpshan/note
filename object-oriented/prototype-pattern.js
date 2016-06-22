@@ -13,7 +13,6 @@
 function Person(){
 
 }
-
 Person.prototype.name = "shan";
 Person.prototype.age = 24;
 Person.prototype.job = "software Engineer";
@@ -43,6 +42,22 @@ JavaScript的所有对象都有构造函数，而所有构造函数都有prototy
 */
 
 //原型对象动态性
+function Person(){
+
+}
+var friend = new Person();
+Person.prototype = {
+	constructor: Person,
+	name: "shan",
+	age : 24,
+	job : "software Engineer"
+	sayName : function(){
+		alert(this.name);
+	}
+}
+
+friend.sayName();  //error,friend指向最初的原型，原型中不包含此方法
+//注： Person.prototype以字面量形式创建新对象时constructor属性不再指向Person，
 //原型对象存在的问题
 
 
